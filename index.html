@@ -10,12 +10,6 @@
     <title>simon Dice</title>
   </head>
   <body>
-    <header>
-      <div class="contenedor__titulo">
-        <h1 class="title level"></h1>
-      </div>
-    </header>
-
     <section class="modal" id="modal">
       <div>
         <h1 class="title">Presione play o una tecla para empezar el juego</h1>
@@ -31,7 +25,26 @@
       </div>
     </section>
 
+    <section class="modal__GameOver" id="modal__gameOver">
+      <div class="modal__GameOver__contenedor">
+        <h1 class="title gamen__over">GAME OVER</h1>
+        <h3>¿Deseas volver a jugar?</h3>
+
+        <div class="modal__GameOver__contenedor__botones">
+          <div class="boton boton__check" id="check">
+            <i class="fa-sharp fa-solid fa-check fa-2xl"></i>
+          </div>
+          <div class="boton boton__home" id="home">
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <main class="contenedor">
+      <div class="contenedor__titulo">
+        <h1 class="title level"></h1>
+      </div>
       <section class="contenedor__row">
         <div
           id="blue"

@@ -3,7 +3,7 @@ import Games from "./modules/games.js";
 
 let inicio = false;
 let level = 0;
-const patronJuego = [];
+let patronJuego = [];
 let patronJugador = [];
 
 ///click a boton play
@@ -18,12 +18,15 @@ $(document).keypress(function (e) {
   }
 });
 
-//detecta a que color se le hace click
+//detecta a que color se le hace click y verifica el patron
 $(".contenedor__row__bloque").click(function (e) {
   let click = this.id;
   mostrarPatron(click);
   patronJugador.push(click);
-  if (patronJugador.length == patronJuego.length) {
+  if (
+    patronJugador.length == patronJuego.length &&
+    patronJugador.length <= patronJuego.length
+  ) {
     let sigue = Games.verificaPatron(patronJuego, patronJugador);
     if (sigue) {
       patronJugador = [];
@@ -31,21 +34,29 @@ $(".contenedor__row__bloque").click(function (e) {
         siguiente();
       }, 1000);
     } else {
-      alert("perdio");
+      perdio();
     }
   }
 });
 
+//si desea volver a jugar
+$("#check").click(function () {
+  reiniciar();
+});
+
+//si desea regresar al inicio
+$("#home").click(function () {
+  regresarInicio();
+});
+
+//se llama solo para cuando empieza el nivel, para quitar el modal e iniciar juego
 function primerNivel() {
-  let patron = Games.GenearaNuevoPatron();
-  level++;
-  mostrarTexto(level);
-  $("#modal").fadeOut();
-  mostrarPatron(patron);
-  patronJuego.push(patron);
   inicio = true;
+  $("#modal").fadeOut();
+  siguiente();
 }
 
+//muestra los click y sus respectivos sonidos
 function mostrarPatron(color) {
   const sound = new Audio(`assets/sound/${color}.mp3`);
   sound.play();
@@ -55,6 +66,7 @@ function mostrarPatron(color) {
   }, 500);
 }
 
+//cambia de nivel
 function siguiente() {
   level++;
   let patron = Games.GenearaNuevoPatron();
@@ -63,8 +75,43 @@ function siguiente() {
   mostrarPatron(patron);
 }
 
-function perdio() {}
+//si el jugador pierde muestra modal de game over y llama a funcion para reiniciar variables
+function perdio() {
+  const audio = new Audio("assets/sound/wrong.mp3");
+  audio.play();
+  $("#modal__gameOver").css("display", "flex");
+  $("#modal__gameOver").fadeIn();
+  reset();
+}
 
+//si da click a boton inicio muestra el modal inicial y quita el modal de game over
+function regresarInicio() {
+  $("#modal__gameOver").css("display", "none");
+  $("#modal__gameOver").fadeOut();
+  $("#modal").fadeIn();
+  mostrarTexto(level);
+}
+
+//si da click a boton reiniciar quita el modal game over y lo manda al primer nivel
+function reiniciar() {
+  $("#modal__gameOver").css("display", "none");
+  $("#modal__gameOver").fadeOut();
+  siguiente();
+}
+
+//muestra texto del nivel
 function mostrarTexto(level) {
-  $(".level").text("Level " + level);
+  if (level == 0) {
+    $(".level").text("");
+  } else {
+    $(".level").text("Level " + level);
+  }
+}
+
+//restablece los valores de las variables al inicial
+function reset() {
+  inicio = false;
+  level = 0;
+  patronJuego = [];
+  patronJugador = [];
 }
