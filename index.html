@@ -16,7 +16,7 @@
       </div>
     </header>
 
-    <section class="modal">
+    <section class="modal" id="modal">
       <div>
         <h1 class="title">Presione play o una tecla para empezar el juego</h1>
         <h3>Instrucciones del juego</h3>
@@ -25,34 +25,42 @@
           darle click, cada nivel que avazas debes recordar todo el patron
           anterior.
         </p>
-        <div class="play"><i class="fa-solid fa-play fa-2xl"></i></div>
+        <div class="play" id="play">
+          <i class="fa-solid fa-play fa-2xl"></i>
+        </div>
       </div>
     </section>
 
     <main class="contenedor">
       <section class="contenedor__row">
         <div
-          id="azul"
+          id="blue"
           class="contenedor__row__bloque contenedor__row__bloque--azul"
         ></div>
         <div
-          id="rojo"
+          id="red"
           class="contenedor__row__bloque contenedor__row__bloque--rojo"
         ></div>
       </section>
 
       <section class="contenedor__row">
         <div
-          id="amarillo"
+          id="yellow"
           class="contenedor__row__bloque contenedor__row__bloque--amarillo"
         ></div>
         <div
-          id="verde"
+          id="green"
           class="contenedor__row__bloque contenedor__row__bloque--verde"
         ></div>
       </section>
     </main>
 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="module" src="../js/main.js"></script>
     <script
       src="https://kit.fontawesome.com/6ffaf99449.js"

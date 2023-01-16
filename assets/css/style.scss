@@ -49,6 +49,7 @@ body {
       border-radius: 15px;
       border: 0.5rem solid black;
       margin: 3%;
+      cursor: pointer;
       &--rojo {
         background-color: red;
       }
@@ -117,6 +118,11 @@ body {
       }
     }
   }
+}
+
+.click {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
 }
 
 @media screen and (min-width: 700px) {
