@@ -2,12 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>app</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/icono.svg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.scss">
+
+    <title>simon Dice</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="../js/main.js"></script>
+    <section class="modal" id="modal">
+      <div>
+        <h1 class="title">Presione play o una tecla para empezar el juego</h1>
+        <h3>Instrucciones del juego</h3>
+        <p>
+          Cada vez que empieza un nivel se motrara un color al que debes de
+          darle click, cada nivel que avazas debes recordar todo el patron
+          anterior.
+        </p>
+        <div class="play" id="play">
+          <i class="fa-solid fa-play fa-2xl"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal__GameOver" id="modal__gameOver">
+      <div class="modal__GameOver__contenedor">
+        <h1 class="title gamen__over">GAME OVER</h1>
+        <h3>¿Deseas volver a jugar?</h3>
+
+        <div class="modal__GameOver__contenedor__botones">
+          <div class="boton boton__check" id="check">
+            <i class="fa-sharp fa-solid fa-check fa-2xl"></i>
+          </div>
+          <div class="boton boton__home" id="home">
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="contenedor">
+      <div class="contenedor__titulo">
+        <h1 class="title level"></h1>
+      </div>
+      <section class="contenedor__row">
+        <div
+          id="blue"
+          class="contenedor__row__bloque contenedor__row__bloque--azul"
+        ></div>
+        <div
+          id="red"
+          class="contenedor__row__bloque contenedor__row__bloque--rojo"
+        ></div>
+      </section>
+
+      <section class="contenedor__row">
+        <div
+          id="yellow"
+          class="contenedor__row__bloque contenedor__row__bloque--amarillo"
+        ></div>
+        <div
+          id="green"
+          class="contenedor__row__bloque contenedor__row__bloque--verde"
+        ></div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="./js/main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6ffaf99449.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
