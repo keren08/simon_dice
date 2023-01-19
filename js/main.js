@@ -1,4 +1,4 @@
-import "../assets/css/style.scss";
+//import "../assets/css/style.scss";
 import Games from "./modules/games.js";
 
 let inicio = false;
